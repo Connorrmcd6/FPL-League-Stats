@@ -11,3 +11,8 @@ Manual Mode:
 if you wish to run the script without telegram, you can now run all in the summary_manual.ipynb file. The stats and plots will be printed out below each cell.
 
 Telegram:
+- Download Telegram and start a chat with @BotFather, send "/newbot" and follow the prompts to create your own bot
+- Save the API token as telegram_api_key in the configs.py file
+- To get chat_id, start a chat with @userinfobot and send it "/start" then save the ID as chat_id in the configs.py file
+- Send a message (eg. 'hello world!') to your bot to give it permission to send messages to your chat ID. 
+- Run summary_telegram.ipynb
