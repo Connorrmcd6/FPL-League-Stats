@@ -1,5 +1,8 @@
 This Repo will provide some interesting stats on your FPL mini leagues, such has who took the most hits, who is the most consistent etc... You can choose to run the summary manually or have it sent to you on telegram.
 
+***IMPORTANT: Since this script will run through everyone in your league it is advised not to use it on public or very large private leagues. Try and only use it for leagues with less than 25 members.***
+
+
 Set-Up:
 - Clone the repo
 - Make a copy of "example_configs.py" and name it "configs.py"
@@ -17,4 +20,3 @@ Telegram:
 - Send a message (eg. 'hello world!') to your bot to give it permission to send messages to your chat ID. 
 - Run summary_telegram.ipynb
 
-***IMPORTANT: Since this script will run through every one in your league it is advised not to use it on public or very large private leagues. Try and only use it for leagues with less than 25 members.***
