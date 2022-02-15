@@ -17,4 +17,4 @@ Telegram:
 - Send a message (eg. 'hello world!') to your bot to give it permission to send messages to your chat ID. 
 - Run summary_telegram.ipynb
 
-*** IMPORTANT: Since this script will run through every one in your league it is advised not to use it on public or very large private leagues. Try and only use it for leagues with less than 25 members. ***
+***IMPORTANT: Since this script will run through every one in your league it is advised not to use it on public or very large private leagues. Try and only use it for leagues with less than 25 members.***
