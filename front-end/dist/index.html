@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Fantasy Dash</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<form autocomplete='off' class='form'>
+  <div class='control'>
+  </div>
+  <div class='control block-cube block-input'>
+    <input name='league_id'id='league_id' placeholder='League ID' type='text'>
+    <div class='bg-top'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg-right'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg'>
+      <div class='bg-inner'></div>
+    </div>
+  </div>
+  <button class='btn block-cube block-cube-hover' type='button' onclick="sendLeagueID()">
+    <div class='bg-top'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg-right'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='text'>
+      Generate Dashboard
+    </div>
+  </button>
+</form>
+<!-- partial -->
+  
+</body>
+</html>
+
+<script>
+  function sendLeagueID(){
+    let input = document.getElementById("league_id").value;
+    alert(input);
+};
+</script>
