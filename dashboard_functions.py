@@ -7,10 +7,12 @@ import pandas as pd
 def get_league_standings(league_id):
     endpoint = f'https://fantasy.premierleague.com/api/leagues-classic/{league_id}/standings/'
     response = requests.get(endpoint).json()
+    print('league standings endpoint: OK')
     standings = pd.DataFrame(response['standings']['results'])
 
     endpoint = 'https://fantasy.premierleague.com/api/bootstrap-static/'
     response = requests.get(endpoint).json()
+    print('favourite clubs endpoint: OK')
     clubs = pd.DataFrame(response['teams']).iloc[:, [3,5]]
     clubs.rename(columns = {'id':'club_id', 'name':'club'}, inplace = True)
 
@@ -27,6 +29,7 @@ def get_league_standings(league_id):
     for i in standings.entry:
         endpoint = f' https://fantasy.premierleague.com/api/entry/{i}/'
         response = requests.get(endpoint).json()
+        print('entry endpoint: OK')
         favourite_club_id = response['favourite_team']
         region = response["player_region_name"]
         manager_ids.append(i)
@@ -35,31 +38,32 @@ def get_league_standings(league_id):
 
         endpoint = f'https://fantasy.premierleague.com/api/entry/{i}/history/'
         response = requests.get(endpoint).json()
+        print('chips endpoint: OK')
         chips = response['chips']
-        season = response['current']
+        # season = response['current']
 
         if len(chips) == 0:
-            TC.append(0)
-            BB.append(0)
-            FH.append(0)
+            TC.append('Available')
+            BB.append('Available')
+            FH.append('Available')
             ids.append(i)
 
         else:
             for j in chips:
                 if j['name'] == '3xc':
-                    TC.append(1)
+                    TC.append('Used')
                 else:
-                    TC.append(0)
+                    TC.append('Available')
 
                 if j['name'] == 'bboost':
-                    BB.append(1)
+                    BB.append('Used')
                 else:
-                    BB.append(0)
+                    BB.append('Available')
 
                 if j['name'] == 'freehit':
-                    FH.append(1)
+                    FH.append('Used')
                 else:
-                    FH.append(0)
+                    FH.append('Available')
 
                 ids.append(i)
 
@@ -81,6 +85,7 @@ def get_season_data(standings):
 
         endpoint = f'https://fantasy.premierleague.com/api/entry/{i}/history/'
         response = requests.get(endpoint).json()
+        print('season endpoint: OK')
         season = response['current']
         temp_season_df = pd.DataFrame(season)
 
@@ -99,7 +104,9 @@ def get_season_data(standings):
 
 
 league_standings = get_league_standings(league_id)
-
 season_data = get_season_data(league_standings)
 
-print(season_data)
+league_standings.to_csv('league_standings.csv', index=False)
+season_data.to_csv('season_data.csv', index = False)
+
+print('done')
