@@ -106,7 +106,7 @@ def get_season_data(standings):
 league_standings = get_league_standings(league_id)
 season_data = get_season_data(league_standings)
 
-league_standings.to_csv('league_standings.csv', index=False)
-season_data.to_csv('season_data.csv', index = False)
+league_standings.to_csv('league_standings.csv', sep= ';', index=False)
+season_data.to_csv('season_data.csv', sep= ';',  index = False)
 
 print('done')
