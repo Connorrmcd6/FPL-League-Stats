@@ -10,6 +10,7 @@ def get_league_standings(league_id):
     print('league standings endpoint: OK')
     standings = pd.DataFrame(response['standings']['results'])
 
+
     endpoint = 'https://fantasy.premierleague.com/api/bootstrap-static/'
     response = requests.get(endpoint).json()
     print('favourite clubs endpoint: OK')
@@ -29,7 +30,7 @@ def get_league_standings(league_id):
     for i in standings.entry:
         endpoint = f' https://fantasy.premierleague.com/api/entry/{i}/'
         response = requests.get(endpoint).json()
-        print('entry endpoint: OK')
+        # print('entry endpoint: OK')
         favourite_club_id = response['favourite_team']
         region = response["player_region_name"]
         manager_ids.append(i)
@@ -38,32 +39,32 @@ def get_league_standings(league_id):
 
         endpoint = f'https://fantasy.premierleague.com/api/entry/{i}/history/'
         response = requests.get(endpoint).json()
-        print('chips endpoint: OK')
+        # print('chips endpoint: OK')
         chips = response['chips']
         # season = response['current']
 
         if len(chips) == 0:
-            TC.append('Available')
-            BB.append('Available')
-            FH.append('Available')
+            TC.append(0)
+            BB.append(0)
+            FH.append(0)
             ids.append(i)
 
         else:
             for j in chips:
                 if j['name'] == '3xc':
-                    TC.append('Used')
+                    TC.append(1)
                 else:
-                    TC.append('Available')
+                    TC.append(0)
 
                 if j['name'] == 'bboost':
-                    BB.append('Used')
+                    BB.append(1)
                 else:
-                    BB.append('Available')
+                    BB.append(0)
 
                 if j['name'] == 'freehit':
-                    FH.append('Used')
+                    FH.append(1)
                 else:
-                    FH.append('Available')
+                    FH.append(0)
 
                 ids.append(i)
 
@@ -73,7 +74,12 @@ def get_league_standings(league_id):
     standings = pd.merge(standings, clubs, on="club_id", how="left")
 
     chip_df =pd.DataFrame({'m_id': ids, 'used_tc': TC, 'used_bb': BB, 'used_fh': FH})
+    chip_df = chip_df.groupby('m_id').sum().reset_index()
+
+
     standings = pd.merge(standings, chip_df, left_on='entry', right_on='m_id', how='left').drop('m_id', axis=1)
+    standings = standings.replace(",","", regex=True).replace("‘","", regex=True).replace("-","", regex=True)
+    standings =standings.drop_duplicates(subset=['id'], keep='last', inplace=False, ignore_index=False)
 
     return standings
 
@@ -96,9 +102,12 @@ def get_season_data(standings):
         temp_season_df['entry'] = m_id
 
         season_df = season_df.append(temp_season_df, ignore_index=True)
+        season_df = season_df.replace(",","", regex=True).replace("‘","", regex=True).replace("-","", regex=True)
+        season_df =season_df.drop_duplicates(subset=None, keep='first', inplace=False, ignore_index=False)
 
         
     season_df = pd.merge(season_df, standings[['entry','player_name']], on="entry", how="left")
+    
 
     return season_df
 
@@ -107,6 +116,6 @@ league_standings = get_league_standings(league_id)
 season_data = get_season_data(league_standings)
 
 league_standings.to_csv('league_standings.csv', sep= ';', index=False)
-season_data.to_csv('season_data.csv', sep= ';',  index = False)
+season_data.to_csv('season_data2.csv', sep= ';',  index = False)
 
 print('done')

@@ -1,16 +1,14 @@
 id;event_total;player_name;rank;last_rank;rank_sort;total;entry;entry_name;club_id;region;club;used_tc;used_bb;used_fh
-10303098;70;Niklas Wietzorrek;1;1;1;331;1742534;CanceloCulture;12.0;South Africa;Liverpool;Used;Available;Available
-11191718;79;Liam Smorfitt;2;6;2;320;1930701;PK fc;14.0;South Africa;Man Utd;Available;Available;Available
-54837678;78;Divyam Dixit;3;5;3;320;2208836;To be Coutinho'd;12.0;England;Liverpool;Available;Available;Available
-11604984;78;Marco Gouveia;4;4;4;318;552345;Neves Say Never;1.0;South Africa;Arsenal;Available;Available;Available
-42389877;84;Ryan Shacks;5;10;5;312;578302;Dier Straits;18.0;South Africa;Spurs;Available;Available;Available
-42326189;60;Peter Wertz;6;2;6;311;2123591;Alfa Romeu;17.0;South Africa;Southampton;Available;Available;Available
-62382206;64;Cam Jacobsz;7;7;7;305;2122857;BringBackDaMane;12.0;South Africa;Liverpool;Available;Available;Available
-11163290;50;Devon Hodgson;8;3;8;299;1002132;Banterlona;14.0;England;Man Utd;Available;Available;Available
-11045904;65;Connor McDonald;9;8;9;299;534613;Darwin Award;12.0;South Africa;Liverpool;Available;Available;Available
-11593605;82;HetheB Ninja;10;12;10;297;2032628;Obi Wan-Bassaka;14.0;South Africa;Man Utd;Available;Available;Available
-44640726;62;Jason Perry;11;9;11;292;3648627;Change Name;14.0;South Africa;Man Utd;Available;Available;Available
-11044918;76;Alex Wietzorrek;12;11;12;291;560769;Shake ‘n Bake;;South Africa;;Available;Available;Used
-11044918;76;Alex Wietzorrek;12;11;12;291;560769;Shake ‘n Bake;;South Africa;;Available;Available;Available
-11600435;49;Cole Floyd;13;13;13;267;1947717;FatFloyd;10.0;South Africa;Leicester;Available;Available;Available
-11595521;82;Devon Jansen;14;14;14;251;1789073;Tarkowski, analysis;14.0;South Africa;Man Utd;Available;Available;Available
+11604984;58;Marco Gouveia;1;1;1;1939;552345;Neves Say Never;1.0;South Africa;Arsenal;1;1;0
+54837678;70;Divyam Dixit;2;2;2;1922;2208836;To be Coutinho'd;12.0;England;Liverpool;1;1;0
+11045904;65;Connor McDonald;3;3;3;1880;534613;Darwin Award;12.0;South Africa;Liverpool;1;1;1
+42389877;49;Ryan Shacks;4;4;4;1858;578302;Dier Straits;18.0;South Africa;Spurs;1;1;1
+11044918;62;Alex Wietzorrek;5;5;5;1858;560769;Shake n Bake;;South Africa;;1;1;1
+42326189;59;Peter Wertz;6;6;6;1839;2123591;Alfa Romeu;17.0;South Africa;Southampton;1;1;1
+10303098;70;Niklas Wietzorrek;7;8;7;1754;1742534;CanceloCulture;12.0;South Africa;Liverpool;1;1;1
+11595521;67;Devon Jansen;8;7;8;1754;1789073;Tarkowski analysis;14.0;South Africa;Man Utd;0;1;1
+11163290;44;Devon Hodgson;9;9;9;1728;1002132;Banterlona;14.0;England;Man Utd;0;0;1
+44640726;45;Jason Perry;10;10;10;1712;3648627;Change Name;14.0;South Africa;Man Utd;0;0;0
+11191718;47;Liam Smorfitt;11;11;11;1707;1930701;PK fc;14.0;South Africa;Man Utd;0;1;0
+11600435;51;Cole Floyd;12;12;12;1694;1947717;FatFloyd;10.0;South Africa;Leicester;0;1;1
+11593605;46;Hethe Brinkman;13;13;13;1550;2032628;Obi WanBassaka;14.0;South Africa;Man Utd;0;0;1
